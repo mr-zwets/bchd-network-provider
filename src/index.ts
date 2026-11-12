@@ -4,5 +4,5 @@ export {
   type BlockEvent,
   type SubscriptionOptions,
   type TransactionEvent,
+  type TransactionSubscriptionOptions,
 } from './BchdNetworkProvider.js';
-export { hashToHex, hexToHash, parseCashToken } from './encoding.js';

@@ -2,8 +2,24 @@
   "name": "cashscript-bchd-provider",
   "version": "0.1.0",
   "description": "CashScript NetworkProvider backed by a BCHD node over gRPC-Web, for browsers and Node.js",
+  "keywords": [
+    "bitcoin cash",
+    "cashscript",
+    "bchd",
+    "grpc",
+    "grpc-web",
+    "cashtokens"
+  ],
+  "homepage": "https://github.com/mr-zwets/cashscript-bchd-provider#readme",
+  "bugs": {
+    "url": "https://github.com/mr-zwets/cashscript-bchd-provider/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr-zwets/cashscript-bchd-provider.git"
+  },
   "license": "MIT",
-  "author": "mr-zwets",
+  "author": "Mathieu Geukens <mr-zwets@protonmail.com>",
   "type": "module",
   "sideEffects": false,
   "main": "dist/index.js",
@@ -12,18 +28,28 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./generated": {
+      "types": "./dist/generated/bchrpc_pb.d.ts",
+      "default": "./dist/generated/bchrpc_pb.js"
     }
   },
-  "files": ["dist", "proto"],
+  "files": [
+    "dist",
+    "src",
+    "proto"
+  ],
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "generate": "buf generate",
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run typecheck && npm test",
     "typecheck": "tsc --noEmit",
     "test": "vitest run test/unit",
-    "test:regtest": "NODE_EXTRA_CA_CERTS=.regtest/rpc.cert vitest run test/regtest"
+    "test:regtest": "BCHD_REGTEST=1 NODE_EXTRA_CA_CERTS=.regtest/rpc.cert vitest run test/regtest"
   },
   "peerDependencies": {
     "cashscript": "^0.14.0"
