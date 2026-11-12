@@ -74,7 +74,7 @@ Option 3 is the one to do if this becomes a recommended provider for browser dap
   `tx rejected: <description>`. The description is bchd's own text from `mempool/mempool.go`, which mostly
   does not include the BCHN reject reason. The provider matches that wording, plus the BCHN reasons in case
   they appear.
-  - Proposed bchd change (the fork is ours): include the reject reason in the gRPC status message or as
+  - Proposed bchd change: include the reject reason in the gRPC status message or as
     status details. Classification could then rely on the reason codes alone.
 - **The address index is keyed by address.** `getUtxosForLockingBytecode` only works for locking bytecode
   with a CashAddress (P2PKH, P2SH20, P2SH32); anything else throws. CashScript contracts are always
@@ -118,10 +118,6 @@ Option 3 is the one to do if this becomes a recommended provider for browser dap
 
 - **Name.** Package, folder and planned GitHub repo are all `bchd-network-provider`. If this is ever published
   to npm, check the name is free or use a scope (e.g. `@mr-zwets/bchd-network-provider`).
-- **CashScript PR #267.** If we propose this instead of #267, put the comparison in that PR's discussion, not
-  in this README. In short, this version:
-  - detects NFTs from the bitfield, where #267 checked for a commitment and so dropped NFTs with empty
-    commitments;
-  - doesn't reverse response buffers in place;
-  - follows the 0.14 interface;
-  - maps errors to CashScript's error classes, checks the network, streams, and has tests.
+- **CashScript PR #267** ([BchdGrpcNetworkProvider](https://github.com/CashScript/cashscript/pull/267) by
+  PHCitizen) was the starting point for this prototype. Decide together with its author whether this
+  continues as a separate package or goes into CashScript.
