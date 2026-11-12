@@ -1,4 +1,4 @@
-# cashscript-bchd-provider
+# bchd-network-provider
 
 A [CashScript](https://cashscript.org) `NetworkProvider` backed by a [bchd](https://github.com/gcash/bchd) node's gRPC API.
 The same code runs in browsers and in Node.js.
@@ -7,12 +7,12 @@ The same code runs in browsers and in Node.js.
 > could be a published library.
 
 ```sh
-npm install github:mr-zwets/cashscript-bchd-provider   # builds on install
+npm install github:mr-zwets/bchd-network-provider   # builds on install
 ```
 
 ```ts
 import { Contract, Network } from 'cashscript';
-import { BchdNetworkProvider } from 'cashscript-bchd-provider';
+import { BchdNetworkProvider } from 'bchd-network-provider';
 
 const provider = new BchdNetworkProvider(Network.MAINNET, { url: 'https://bchd.example.com:8335' });
 const contract = new Contract(artifact, args, { provider });
@@ -79,7 +79,7 @@ Extras:
   for a block disconnected in a reorg.
 - `client`: the generated Connect client, for any other bchd RPC. Its calls are raw: no network check,
   default timeout or error mapping. The generated messages and enums are exported from
-  `cashscript-bchd-provider/generated`.
+  `bchd-network-provider/generated`.
 
 Aborting the `signal` ends an iterator without an error, also while it is still connecting. Breaking out of a
 `for await` loop closes the stream too.

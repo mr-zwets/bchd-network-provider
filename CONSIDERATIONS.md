@@ -116,8 +116,8 @@ Option 3 is the one to do if this becomes a recommended provider for browser dap
 
 ## 8. Before making the repo public
 
-- **Name.** The package is `cashscript-bchd-provider`, and `package.json`'s repository fields assume a GitHub
-  repo of that name. The local folder is `bchd-network-provider`. Pick one.
+- **Name.** Package, folder and planned GitHub repo are all `bchd-network-provider`. If this is ever published
+  to npm, check the name is free or use a scope (e.g. `@mr-zwets/bchd-network-provider`).
 - **CashScript PR #267.** If we propose this instead of #267, put the comparison in that PR's discussion, not
   in this README. In short, this version:
   - detects NFTs from the bitfield, where #267 checked for a commitment and so dropped NFTs with empty

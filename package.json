@@ -1,5 +1,5 @@
 {
-  "name": "cashscript-bchd-provider",
+  "name": "bchd-network-provider",
   "version": "0.1.0",
   "description": "CashScript NetworkProvider backed by a BCHD node over gRPC-Web, for browsers and Node.js",
   "keywords": [
@@ -10,13 +10,13 @@
     "grpc-web",
     "cashtokens"
   ],
-  "homepage": "https://github.com/mr-zwets/cashscript-bchd-provider#readme",
+  "homepage": "https://github.com/mr-zwets/bchd-network-provider#readme",
   "bugs": {
-    "url": "https://github.com/mr-zwets/cashscript-bchd-provider/issues"
+    "url": "https://github.com/mr-zwets/bchd-network-provider/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mr-zwets/cashscript-bchd-provider.git"
+    "url": "git+https://github.com/mr-zwets/bchd-network-provider.git"
   },
   "license": "MIT",
   "author": "Mathieu Geukens <mr-zwets@protonmail.com>",
