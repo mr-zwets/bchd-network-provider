@@ -63,6 +63,9 @@ Option 3 is the one to do if this becomes a recommended provider for browser dap
   Keep the two in step when CashScript bumps it.
 - **`cashscript`** is a peer dependency `^0.14.0`. The provider imports CashScript's `NetworkProvider*Error`
   classes and `Network`, so a breaking change to those in CashScript breaks this package.
+- **Installing from git runs `prepare`** (`npm run build`) to build `dist/`. Recent npm warns that this
+  script isn't covered by its install-script allowlist; it still ran in testing, but stricter settings could
+  block it. Publishing to npm, which ships the built `dist/`, avoids this.
 - **ESM-only.** `require()` fails because libauth uses top-level await. That matches CashScript.
 
 ## 5. Behaviour that depends on bchd
